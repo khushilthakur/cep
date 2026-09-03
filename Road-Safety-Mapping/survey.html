@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Road Safety Survey | Road Safety Mapping</title>
+  <meta name="description" content="Community engagement survey collecting primary empirical data from students, parents, and teachers for the University of Mumbai CEP." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Field Survey Module</span>
+    <span>Responses recorded here are saved locally and immediately update the Analytics Dashboard.</span>
+    <a href="results.html">View Live Results &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link active">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link active">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>Community Survey</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <h1 class="page-title">School Zone Road Safety Survey</h1>
+            <p class="page-subtitle">
+              Your feedback is essential for identifying hazardous locations, informing digital risk mapping, and proposing traffic calming solutions around St. Jude Model High School, Vile Parle (W).
+            </p>
+          </div>
+          <div class="stat-card" style="padding: 0.85rem 1.25rem; min-width: 220px;">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-subtle); text-transform: uppercase;">
+              Local Responses Recorded
+            </div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary);" id="local-survey-count">0</div>
+            <div style="font-size: 0.75rem; color: var(--text-subtle);">Stored in browser localStorage</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Survey Form Section -->
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+
+        <!-- Submission Feedback Container (Dynamically Inserted Upon Submit) -->
+        <div id="submission-feedback-container"></div>
+
+        <form id="community-survey-form" class="survey-card" novalidate>
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 2rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">Community Stakeholder Questionnaire</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Please complete all 14 questions based on your daily commute experience.</p>
+            </div>
+            <span class="badge badge-school">CEP Field Instrument</span>
+          </div>
+
+          <!-- Question 1: Respondent Category -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q1.</span> What is your primary respondent category?
+              <span class="required-asterisk">*</span>
+            </label>
+            <p class="survey-question-desc">Select the role that best describes your relationship to the school.</p>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="respondentCategory" value="Student" required /> Student
+              </label>
+              <label class="option-label">
+                <input type="radio" name="respondentCategory" value="Parent" /> Parent / Guardian
+              </label>
+              <label class="option-label">
+                <input type="radio" name="respondentCategory" value="Teacher" /> Teacher / Staff
+              </label>
+              <label class="option-label">
+                <input type="radio" name="respondentCategory" value="Local Resident" /> Local Resident
+              </label>
+              <label class="option-label">
+                <input type="radio" name="respondentCategory" value="Other" /> Daily Commuter
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 2: Transport Mode -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q2.</span> How do you primarily travel to / from the school?
+              <span class="required-asterisk">*</span>
+            </label>
+            <p class="survey-question-desc">Your main mode of transportation.</p>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Walking" required /> 🚶 Walking
+              </label>
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Bicycle" /> 🚲 Bicycle
+              </label>
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Bus" /> 🚌 School / BEST Bus
+              </label>
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Auto" /> 🛺 Auto-Rickshaw
+              </label>
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Two-wheeler" /> 🛵 Two-Wheeler / Scooter
+              </label>
+              <label class="option-label">
+                <input type="radio" name="transportMode" value="Car" /> 🚗 Private Car
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 3: Commute Travel Time -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q3.</span> How much time does your journey usually take?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="travelTime" value="Under 10 mins" required /> Under 10 minutes
+              </label>
+              <label class="option-label">
+                <input type="radio" name="travelTime" value="10-20 mins" /> 10 to 20 minutes
+              </label>
+              <label class="option-label">
+                <input type="radio" name="travelTime" value="20-30 mins" /> 20 to 30 minutes
+              </label>
+              <label class="option-label">
+                <input type="radio" name="travelTime" value="Over 30 mins" /> Over 30 minutes
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 4: Safety Perception Rating -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q4.</span> How safe do you feel while travelling near the school?
+              <span class="required-asterisk">*</span>
+            </label>
+            <p class="survey-question-desc">Your overall perception of traffic and road risk.</p>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="safetyRating" value="Very Safe" required /> 🟢 Very Safe
+              </label>
+              <label class="option-label">
+                <input type="radio" name="safetyRating" value="Safe" /> 🟢 Safe
+              </label>
+              <label class="option-label">
+                <input type="radio" name="safetyRating" value="Neutral" /> 🟡 Neutral
+              </label>
+              <label class="option-label">
+                <input type="radio" name="safetyRating" value="Unsafe" /> 🟠 Unsafe
+              </label>
+              <label class="option-label">
+                <input type="radio" name="safetyRating" value="Very Unsafe" /> 🔴 Very Unsafe
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 5: Zebra Crossing Presence -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q5.</span> Is there a visible zebra crossing near the school?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="zebraCrossingPresent" value="Yes" required /> Yes, clearly marked
+              </label>
+              <label class="option-label">
+                <input type="radio" name="zebraCrossingPresent" value="No" /> No, completely missing
+              </label>
+              <label class="option-label">
+                <input type="radio" name="zebraCrossingPresent" value="Unsure" /> Faded or Unsure
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 6: Ease of Crossing -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q6.</span> Is it easy to cross the road near the school?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="easyToCross" value="Yes" required /> Yes, motorists yield
+              </label>
+              <label class="option-label">
+                <input type="radio" name="easyToCross" value="No" /> No, very difficult / dangerous
+              </label>
+              <label class="option-label">
+                <input type="radio" name="easyToCross" value="Sometimes" /> Sometimes / Depends on hour
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 7: Traffic Volume -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q7.</span> Is traffic heavy during school arrival/departure times?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="heavyTraffic" value="Yes - Very Heavy" required /> Yes, severe congestion
+              </label>
+              <label class="option-label">
+                <input type="radio" name="heavyTraffic" value="Moderate" /> Moderate traffic flow
+              </label>
+              <label class="option-label">
+                <input type="radio" name="heavyTraffic" value="No - Light" /> No, smooth and light
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 8: Vehicle Speeding -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q8.</span> Do vehicles travel at high speed near the school zone?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="vehicleSpeeding" value="Frequently Observed" required /> Frequently Observed
+              </label>
+              <label class="option-label">
+                <input type="radio" name="vehicleSpeeding" value="Occasionally" /> Occasionally
+              </label>
+              <label class="option-label">
+                <input type="radio" name="vehicleSpeeding" value="Rarely/Never" /> Rarely / Never
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 9: Improper Parking -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q9.</span> Is improper or double parking a problem near the gate?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="improperParking" value="Major Issue" required /> Major Issue (Blocks view)
+              </label>
+              <label class="option-label">
+                <input type="radio" name="improperParking" value="Moderate Issue" /> Moderate Issue
+              </label>
+              <label class="option-label">
+                <input type="radio" name="improperParking" value="Not an Issue" /> Not an Issue
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 10: Footpath Space -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q10.</span> Is there sufficient pedestrian footpath space?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="sufficientFootpath" value="Yes - Adequate" required /> Yes, wide and clear
+              </label>
+              <label class="option-label">
+                <input type="radio" name="sufficientFootpath" value="Partial/Broken" /> Partial / Broken / Encroached
+              </label>
+              <label class="option-label">
+                <input type="radio" name="sufficientFootpath" value="No Footpaths" /> No footpaths at all
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 11: Signage Visibility -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q11.</span> Are 'School Zone Ahead' road signs clearly visible?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="visibleSignage" value="Clearly Visible" required /> Clearly Visible
+              </label>
+              <label class="option-label">
+                <input type="radio" name="visibleSignage" value="Faded/Missing" /> Faded or Hidden by Trees
+              </label>
+              <label class="option-label">
+                <input type="radio" name="visibleSignage" value="None" /> None visible
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 12: Street Lighting -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q12.</span> Is street lighting sufficient during early morning or evening?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="sufficientLighting" value="Well-lit" required /> Well-lit and bright
+              </label>
+              <label class="option-label">
+                <input type="radio" name="sufficientLighting" value="Dim/Insufficient" /> Dim / Insufficient
+              </label>
+              <label class="option-label">
+                <input type="radio" name="sufficientLighting" value="Dark/Broken" /> Dark / Broken fixtures
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 13: Experienced Hazard -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q13.</span> Have you observed or experienced a near-miss or dangerous situation?
+              <span class="required-asterisk">*</span>
+            </label>
+            <div class="options-group">
+              <label class="option-label">
+                <input type="radio" name="experiencedHazard" value="Yes" required /> Yes, experienced or witnessed
+              </label>
+              <label class="option-label">
+                <input type="radio" name="experiencedHazard" value="No" /> No, have not observed any
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 14: Specific Spot & Recommendation -->
+          <div class="survey-question-block">
+            <label class="survey-question-title">
+              <span class="question-num">Q14.</span> Hazardous Location &amp; Recommendation
+              <span class="required-asterisk">*</span>
+            </label>
+            <p class="survey-question-desc">Specify the exact location you consider dangerous and suggest practical improvements.</p>
+            
+            <div style="margin-bottom: 1rem;">
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                Which location near the school do you consider most dangerous? <span class="required-asterisk">*</span>
+              </label>
+              <input type="text" name="dangerousSpot" class="form-control" placeholder="e.g. Main Gate, SV Road Junction, North Bus Stop..." required />
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                What safety improvement would you recommend? (Optional)
+              </label>
+              <textarea name="recommendationText" class="form-control" placeholder="e.g., Install speed table, deploy traffic warden, paint zebra stripes..."></textarea>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" id="survey-reset-btn" class="btn btn-secondary">
+              Reset Form 🔄
+            </button>
+            <button type="submit" class="btn btn-primary btn-lg">
+              Submit Survey Response 🚀
+            </button>
+          </div>
+        </form>
+
+        <!-- Administrative & Viva Data Controls -->
+        <div class="stat-card" style="padding: 1.5rem; background: var(--bg-surface); border-color: var(--border-color);">
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">
+            CEP Viva Demonstration &amp; Data Management
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            You can export all survey responses collected in this browser session as a structured JSON file for academic report writing, or clear temporary submissions after testing.
+          </p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button type="button" id="export-survey-btn" class="btn btn-sm btn-secondary">
+              📥 Export All Local Responses as JSON
+            </button>
+            <button type="button" id="clear-local-surveys-btn" class="btn btn-sm btn-secondary" style="color: var(--risk-high);">
+              🗑️ Clear Local Browser Responses
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/survey.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Road Safety Mapping Around Schools | Mumbai University CEP</title>
+  <meta name="description" content="Community Engagement Project for University of Mumbai B.Sc. CS Semester V: Studying road safety around schools through field visits, surveys, and digital risk mapping." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Demo Data Mode</span>
+    <span>Pre-loaded with sample field observations &amp; 50 survey responses.</span>
+    <a href="about.html#demo-guide">Learn how to replace with actual field data &rarr;</a>
+  </div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
+          🌙
+        </button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span>🛡️ Civic Technology &amp; Public Safety Platform</span>
+          </div>
+          <h1 class="hero-title">
+            Road Safety Mapping <span>Around Schools</span>
+          </h1>
+          <p class="hero-subtitle">
+            Identifying road hazards, traffic conflicts, and pedestrian vulnerabilities around educational institutions through on-site field visits, community stakeholder surveys, and digital GIS risk mapping.
+          </p>
+          <div class="hero-meta-badge">
+            <span>🏫 <strong>Study Subject:</strong> St. Jude Model High School, Vile Parle (W), Mumbai</span>
+          </div>
+          <div class="hero-actions">
+            <a href="map.html" class="btn btn-primary btn-lg">
+              Explore Safety Map 🗺️
+            </a>
+            <a href="survey.html" class="btn btn-secondary btn-lg">
+              Participate in Survey 📝
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="assets/images/hero-illustration.svg" alt="Road Safety Mapping Platform Illustration" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Statistics Dashboard -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span>Total Survey Responses</span>
+              <span>📊</span>
+            </div>
+            <div class="stat-value" id="home-total-responses">50</div>
+            <div class="stat-desc">Community participants surveyed</div>
+          </div>
+
+          <div class="stat-card stat-high">
+            <div class="stat-header">
+              <span>High Risk Locations</span>
+              <span>🔴</span>
+            </div>
+            <div class="stat-value" id="home-high-risk">2</div>
+            <div class="stat-desc">Critical conflict zones mapped</div>
+          </div>
+
+          <div class="stat-card stat-med">
+            <div class="stat-header">
+              <span>Medium Risk Locations</span>
+              <span>🟠</span>
+            </div>
+            <div class="stat-value" id="home-med-risk">3</div>
+            <div class="stat-desc">Moderate infrastructure hazards</div>
+          </div>
+
+          <div class="stat-card stat-low">
+            <div class="stat-header">
+              <span>Low Risk / Maintained</span>
+              <span>🟢</span>
+            </div>
+            <div class="stat-value" id="home-low-risk">1</div>
+            <div class="stat-desc">Routine upkeep areas</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span>Feel Unsafe Near School</span>
+              <span>⚠️</span>
+            </div>
+            <div class="stat-value" id="home-unsafe-pct">82%</div>
+            <div class="stat-desc">Calculated from survey data</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem Statement Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Urban Challenge</span>
+          <h2 class="section-title">The Road Safety Crisis Around School Zones</h2>
+          <p class="section-subtitle">
+            School arrival and dispersal periods create severe traffic surges where young pedestrians must navigate chaotic traffic, improper vehicular parking, speeding vehicles, and deficient infrastructure.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="stat-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--risk-high);">
+              🚗 Drop-off &amp; Pick-up Congestion
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Private cars, school vans, and auto-rickshaws double-park directly outside school entry gates, obstructing visibility lines and creating blind spots for crossing schoolchildren.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--risk-high);">
+              ⚡ Excessive Speeding &amp; Blind Turns
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Lack of physical speed calming tables, rumble strips, and radar enforcement allows through-traffic to operate at dangerous speeds within designated school buffer perimeters.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--risk-med);">
+              🚶 Broken &amp; Encroached Sidewalks
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Footpaths obstructed by utility boxes, construction debris, or unauthorized vendors force over 75% of walking children directly onto the active vehicular carriageway.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Workflow Pipeline -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Academic Rigour</span>
+          <h2 class="section-title">How The CEP Project Works</h2>
+          <p class="section-subtitle">
+            A real-world empirical pipeline connecting on-ground field observations with computational data analysis, GIS mapping, and policy proposals.
+          </p>
+        </div>
+
+        <div class="workflow-pipeline">
+          <div class="workflow-step">
+            <div class="workflow-step-num">1</div>
+            <div class="workflow-step-title">Field Visit</div>
+            <div class="workflow-step-desc">On-site reconnaissance during peak morning and afternoon dismissal hours.</div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="workflow-step-num">2</div>
+            <div class="workflow-step-title">Observation</div>
+            <div class="workflow-step-desc">Documenting vehicle speeds, driver behaviors, and infrastructure deficits.</div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="workflow-step-num">3</div>
+            <div class="workflow-step-title">Community Survey</div>
+            <div class="workflow-step-desc">Administering structured surveys to students, parents, teachers, and locals.</div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="workflow-step-num">4</div>
+            <div class="workflow-step-title">Data Analysis</div>
+            <div class="workflow-step-desc">Statistical aggregation, percentage calculations, and cross-tabulation.</div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="workflow-step-num">5</div>
+            <div class="workflow-step-title">Digital Mapping</div>
+            <div class="workflow-step-desc">GIS risk plotting on interactive Leaflet.js and OpenStreetMap layers.</div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="workflow-step-num">6</div>
+            <div class="workflow-step-title">Recommendations</div>
+            <div class="workflow-step-desc">Proposing targeted civil engineering, enforcement, and institutional remedies.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Risk Areas Preview -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Empirical Findings</span>
+          <h2 class="section-title">Featured High-Risk Locations</h2>
+          <p class="section-subtitle">
+            Critical problem hotspots identified within the 500-meter school study zone requiring immediate traffic intervention.
+          </p>
+        </div>
+
+        <div class="cards-grid" id="home-featured-risks">
+          <!-- Dynamically populated from risk-data.json -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="risk-areas.html" class="btn btn-secondary">
+            View All Risk Locations &amp; Inspection Matrix &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings & Dynamic Summary -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Data Triangulation</span>
+          <h2 class="section-title">Key Dynamic Findings</h2>
+          <p class="section-subtitle">
+            Synthesis of quantitative survey responses and physical field inspection notes.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="stat-card" style="border-left: 4px solid var(--risk-high);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span class="badge badge-high">Critical Concern</span>
+              <strong style="font-size: 1.4rem; color: var(--risk-high);" id="stat-parking-find">84%</strong>
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">Chaotic Dispersal Parking</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              84% of surveyed parents and residents cite improper drop-off double parking as the primary impediment to safe pedestrian sightlines.
+            </p>
+          </div>
+
+          <div class="stat-card" style="border-left: 4px solid var(--secondary);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span class="badge badge-med">Infrastructure Gap</span>
+              <strong style="font-size: 1.4rem; color: var(--secondary);" id="stat-crossing-find">76%</strong>
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">Crossing Vulnerability</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              76% of respondents experience extreme difficulty crossing Swami Vivekananda Road approach lanes due to non-existent or faded zebra markings.
+            </p>
+          </div>
+
+          <div class="stat-card" style="border-left: 4px solid var(--primary);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span class="badge badge-school">Modal Share</span>
+              <strong style="font-size: 1.4rem; color: var(--primary);" id="stat-walking-find">42%</strong>
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">Active Student Commuters</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              42% of students walk or cycle to school, representing the most vulnerable road users exposed to motorized vehicular risks daily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="section section-alt" style="padding: 4rem 0;">
+      <div class="container" style="text-align: center; max-width: 800px;">
+        <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main); margin-bottom: 1rem;">
+          Support Safer School Zones in Mumbai
+        </h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
+          Whether you are a student, parent, educator, or local resident, your lived experience makes a direct difference in our safety assessment.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="map.html" class="btn btn-primary btn-lg">View Digital Risk Map 📍</a>
+          <a href="survey.html" class="btn btn-warning btn-lg">Take The 2-Minute Survey ✍️</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions using open-source GIS and data science.
+        </p>
+        <div style="margin-top: 0.5rem;">
+          <span class="badge badge-neutral">Academic Year 2024-2025</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+          <li><a href="risk-areas.html">Risk Areas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+          <li><a href="contact.html">Contact &amp; Feedback</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          <strong>Degree:</strong> B.Sc. Computer Science<br />
+          <strong>Semester:</strong> Semester V<br />
+          <strong>Course:</strong> Community Engagement Project<br />
+          <strong>Affiliation:</strong> University of Mumbai
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script>
+    // Populate dynamic homepage statistics and featured cards
+    document.addEventListener("DOMContentLoaded", async () => {
+      // 1. Load Risk Data
+      const riskData = await loadRiskData();
+      if (riskData) {
+        const locations = riskData.riskLocations || [];
+        const highCount = locations.filter(l => l.riskLevel.toLowerCase() === "high").length;
+        const medCount = locations.filter(l => l.riskLevel.toLowerCase() === "medium" || l.riskLevel.toLowerCase() === "med").length;
+        const lowCount = locations.filter(l => l.riskLevel.toLowerCase() === "low").length;
+
+        animateCounter(document.getElementById("home-high-risk"), highCount);
+        animateCounter(document.getElementById("home-med-risk"), medCount);
+        animateCounter(document.getElementById("home-low-risk"), lowCount);
+
+        // Render top 3 featured risk cards
+        const featuredContainer = document.getElementById("home-featured-risks");
+        if (featuredContainer) {
+          featuredContainer.innerHTML = "";
+          locations.slice(0, 3).forEach(loc => {
+            const badge = getRiskBadgeHtml(loc.riskLevel);
+            const card = document.createElement("div");
+            card.className = "risk-card";
+            card.innerHTML = `
+              <div class="risk-card-media">
+                <img src="${loc.photo || 'assets/images/risk-r01.svg'}" alt="${escapeHtml(loc.name)}" onerror="this.src='assets/images/hero-illustration.svg'" />
+                <div class="risk-card-badge">${badge}</div>
+                <div class="risk-card-score">Score: ${loc.riskScore || 12}/25</div>
+              </div>
+              <div class="risk-card-body">
+                <div class="risk-card-id">${escapeHtml(loc.id)} • ${escapeHtml(loc.category || 'Road Safety')}</div>
+                <h3 class="risk-card-title">${escapeHtml(loc.name)}</h3>
+                <p class="risk-card-problem">${escapeHtml(loc.problem)}</p>
+                <div class="risk-card-detail-item">
+                  <strong>Recommendation:</strong>
+                  <span>${escapeHtml(loc.recommendation)}</span>
+                </div>
+              </div>
+              <div class="risk-card-footer">
+                <span style="font-size:0.75rem; color:var(--text-subtle);">📍 Field Visit: ${escapeHtml(loc.date || 'Aug 2024')}</span>
+                <a href="map.html?risk=${loc.id}" class="btn btn-sm btn-primary">Locate on Map 📍</a>
+              </div>
+            `;
+            featuredContainer.appendChild(card);
+          });
+        }
+      }
+
+      // 2. Load Survey Data for dynamic statistics
+      const surveys = await loadSurveyData();
+      if (surveys && surveys.length > 0) {
+        animateCounter(document.getElementById("home-total-responses"), surveys.length);
+        const unsafe = surveys.filter(s => s.safetyRating === "Unsafe" || s.safetyRating === "Very Unsafe").length;
+        const unsafePct = Math.round((unsafe / surveys.length) * 100);
+        document.getElementById("home-unsafe-pct").textContent = `${unsafePct}%`;
+
+        // Dynamic Findings percentages
+        const parking = surveys.filter(s => (s.improperParking || "").includes("Major")).length;
+        document.getElementById("stat-parking-find").textContent = `${Math.round((parking / surveys.length) * 100)}%`;
+
+        const crossing = surveys.filter(s => s.easyToCross === "No").length;
+        document.getElementById("stat-crossing-find").textContent = `${Math.round((crossing / surveys.length) * 100)}%`;
+
+        const walking = surveys.filter(s => s.transportMode === "Walking" || s.transportMode === "Bicycle").length;
+        document.getElementById("stat-walking-find").textContent = `${Math.round((walking / surveys.length) * 100)}%`;
+      }
+    });
+  </script>
+</body>
+</html>

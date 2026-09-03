@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Project | Road Safety Mapping Around Schools</title>
+  <meta name="description" content="Academic context, study area profile, stakeholders, and research objectives for Mumbai University B.Sc. CS CEP." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Demo Data Mode</span>
+    <span>Pre-loaded with sample field observations &amp; 50 survey responses.</span>
+    <a href="#demo-guide">Learn how to replace with actual field data &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link active">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>About Project</span>
+        </div>
+        <h1 class="page-title">About The CEP Project</h1>
+        <p class="page-subtitle">
+          An empirical community engagement study applying computational thinking, GIS web mapping, and survey statistics to improve child pedestrian safety around Mumbai schools.
+        </p>
+      </div>
+    </section>
+
+    <!-- University & Project Context -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-grid" style="align-items: flex-start;">
+          <div>
+            <span class="section-tag">Curriculum Mandate</span>
+            <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-main); margin: 0.5rem 0 1rem;">
+              University of Mumbai CEP Framework
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
+              The <strong>Community Engagement Project (CEP)</strong> is a compulsory curriculum component for <strong>B.Sc. Computer Science Semester V</strong> under the University of Mumbai. The objective of this project is to take computer science beyond the traditional laboratory and apply software engineering, spatial data analysis, and empirical methodologies to tangible civic and community challenges.
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+              Rather than producing a generic awareness website, this project implements a rigorous, data-driven pipeline: conducting physical field inspections during active school hours, gathering primary community survey feedback, evaluating infrastructure against IRC (Indian Roads Congress) school-zone guidelines, and generating an interactive open-source GIS risk map with actionable engineering recommendations.
+            </p>
+
+            <div class="stat-card" style="border-left: 4px solid var(--primary);">
+              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem;">Project Academic Details</h4>
+              <ul style="list-style: none; font-size: 0.86rem; color: var(--text-muted); line-height: 1.8;">
+                <li><strong>Course:</strong> B.Sc. Computer Science (Semester V)</li>
+                <li><strong>Curriculum Module:</strong> USCS508 - Community Engagement Project (CEP)</li>
+                <li><strong>Focus Area:</strong> Civic Technology, Child Road Safety &amp; Open Spatial Data</li>
+                <li><strong>Academic Session:</strong> 2024–2025</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Academic Badge Card -->
+          <div class="stat-card" style="padding: 2rem; border-color: var(--primary);">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <img src="assets/images/school-crest.svg" alt="University / CEP Crest" style="width: 70px; height: 70px; margin: 0 auto 0.75rem;" />
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</h3>
+              <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700; text-transform: uppercase;">
+                Mumbai University CEP Research Initiative
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+              <div style="padding: 0.75rem; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+                <strong>Student Researcher:</strong> B.Sc. Computer Science Candidate
+              </div>
+              <div style="padding: 0.75rem; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+                <strong>Department:</strong> Department of Computer Science &amp; IT
+              </div>
+              <div style="padding: 0.75rem; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+                <strong>Field Supervision:</strong> Faculty Project Guide &amp; Head of Department
+              </div>
+              <div style="padding: 0.75rem; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+                <strong>Examination:</strong> University Viva Voce &amp; Project Demonstration
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Objectives -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Directives</span>
+          <h2 class="section-title">Project Objectives</h2>
+          <p class="section-subtitle">
+            Nine key empirical and computational goals formulated for this community investigation.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 01</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Traffic Flow &amp; Speed Analysis</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Quantify vehicular volumes, modal composition, and turning speeds along school approach lanes during peak arrival (07:15–08:00 AM) and departure (01:15–02:15 PM) windows.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 02</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Pedestrian Infrastructure Audit</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Survey continuous walkway dimensions, paving conditions, encroachment levels, kerb ramp accessibility, and physical barrier adequacy along student walking corridors.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 03</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Zebra Crossings &amp; Signals</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Assess visibility, stripe retro-reflectivity, signal phase durations, and driver yield behavior at designated pedestrian crossing points within 500m of the school.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 04</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Regulatory Signage &amp; Markings</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Inventory IRC standard signs ("School Zone Ahead", "Speed Limit 25 km/h", "No Parking"), checking for visibility, obstruction by foliage, and night-time retro-reflection.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 05</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Drop-off Conflict Identification</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Map vehicle holding patterns, double-parking friction points, auto-rickshaw queue bottlenecks, and school bus halting behaviors directly in front of school gates.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 06</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Community Stakeholder Survey</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Administer structured 14-question questionnaires to capture lived commute experiences, perceived threat levels, and suggestions from students, parents, and teachers.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 07</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Statistical Data Analysis</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Process primary survey datasets using JavaScript and Chart.js to identify modal dependencies, travel time patterns, and statistically significant hazard perceptions.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 08</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Interactive GIS Risk Mapping</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Plot georeferenced risk coordinates on open-source OpenStreetMap layers with interactive popups, photographic evidence, and multi-tier risk filtering.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <span class="badge badge-school" style="margin-bottom: 0.5rem; width: fit-content;">Objective 09</span>
+            <h4 style="font-weight: 700; margin-bottom: 0.4rem;">Evidence-Based Solutions</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              Formulate 4-pillar recommendations covering civil road engineering, traffic management, school gate administrative policies, and civic safety awareness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Study Area Profile -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Selected Case Study</span>
+          <h2 class="section-title">Study Area Profile</h2>
+          <p class="section-subtitle">
+            Geographic context and urban road typology of the surveyed educational institution.
+          </p>
+        </div>
+
+        <div class="hero-grid" style="align-items: center;">
+          <div class="stat-card" style="padding: 2rem;">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem;">
+              St. Jude Model High School
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+              Located along the bustling Swami Vivekananda Road arterial corridor in Vile Parle West, Mumbai (K-West Ward). The school accommodates over 1,450 students from pre-primary through secondary grades.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem;">
+              <div style="background: var(--bg-subtle); padding: 0.65rem; border-radius: var(--radius-sm);">
+                <strong>GPS Coordinates:</strong> 19.1028° N, 72.8430° E
+              </div>
+              <div style="background: var(--bg-subtle); padding: 0.65rem; border-radius: var(--radius-sm);">
+                <strong>Study Buffer:</strong> 500 Meters Radius
+              </div>
+              <div style="background: var(--bg-subtle); padding: 0.65rem; border-radius: var(--radius-sm);">
+                <strong>Major Arterial:</strong> S.V. Road (6 Lanes)
+              </div>
+              <div style="background: var(--bg-subtle); padding: 0.65rem; border-radius: var(--radius-sm);">
+                <strong>Transit Proximity:</strong> Vile Parle Station (450m)
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="map.html" class="btn btn-primary">Inspect Study Perimeter on Map 🗺️</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="stat-card" style="margin-bottom: 1rem; border-left: 4px solid var(--risk-high);">
+              <h4 style="font-weight: 700; color: var(--text-main);">Main Gate Intersection</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Primary bottleneck where school buses, private cars, auto-rickshaws, and over 600 dispersing students converge simultaneously.
+              </p>
+            </div>
+            <div class="stat-card" style="margin-bottom: 1rem; border-left: 4px solid var(--secondary);">
+              <h4 style="font-weight: 700; color: var(--text-main);">Station Road Junction</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Major throughway with heavy auto-rickshaw turning movements and complete absence of pedestrian countdown signals.
+              </p>
+            </div>
+            <div class="stat-card" style="border-left: 4px solid var(--primary);">
+              <h4 style="font-weight: 700; color: var(--text-main);">North Perimeter Bus Halt</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                High-volume transit stop where broken pavers and informal hawker stalls force students into the carriage-way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stakeholders Matrix -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Community Engagement</span>
+          <h2 class="section-title">Key Stakeholders Involved</h2>
+          <p class="section-subtitle">
+            Community partners and municipal authorities consulted during the field study.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🎒</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Students</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Primary vulnerable road users. Participated in surveys regarding subjective fear, crossing wait times, and travel difficulties.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">👨‍👩‍👧</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Parents &amp; Guardians</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Provided key insights into drop-off parking challenges, auto-rickshaw operations, and lack of designated pedestrian waiting zones.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">👩‍🏫</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">School Teachers &amp; Staff</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Assisted in organizing student surveys and documented peak-time gate discipline and vehicle queue delays.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🏘️</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Local Residents &amp; Hawkers</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Shared year-round observations of traffic gridlock, monsoon drainage hazards, and residential lane rat-running.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">👮</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Mumbai Traffic Police</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Local traffic division personnel consulted on speed enforcement feasibility, warden deployments, and signal phases.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🏛️</div>
+            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">BMC Ward Office</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Recipient of engineering recommendations for footpath slab rehabilitation, road markings, and bollard installation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Data Replacement Guide -->
+    <section class="section" id="demo-guide">
+      <div class="container" style="max-width: 900px;">
+        <div class="stat-card" style="border: 2px dashed var(--secondary); background: var(--bg-surface); padding: 2rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span class="badge badge-med">Academic Transparency Notice</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">
+              Replacing Demo Data With Actual Field Data
+            </h3>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+            This website currently loads realistic demonstration baseline records so that mapping, chart visualisations, and navigation can be evaluated during initial stages. For final University submission and viva voce, you can easily plug in your actual fieldwork findings:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
+            <div style="background: var(--bg-subtle); padding: 0.85rem; border-radius: var(--radius-sm);">
+              <strong>1. Update School &amp; Risk Data:</strong> Open <code>data/risk-data.json</code> and replace the coordinates, school name, and risk locations with your actual field notes.
+            </div>
+            <div style="background: var(--bg-subtle); padding: 0.85rem; border-radius: var(--radius-sm);">
+              <strong>2. Update Survey Data:</strong> Open <code>data/survey-data.json</code> or use the on-site Survey page to record live responses from respondents.
+            </div>
+            <div style="background: var(--bg-subtle); padding: 0.85rem; border-radius: var(--radius-sm);">
+              <strong>3. Swap Photographs:</strong> Place your actual high-resolution field photos into <code>assets/images/</code> (e.g. <code>risk-r01.jpg</code>) and update file paths in <code>risk-data.json</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions using open-source GIS and data science.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identified Risk Areas | Road Safety Mapping Around Schools</title>
+  <meta name="description" content="Detailed catalogue of identified road hazards, empirical risk matrix scores, and infrastructure observations around St. Jude Model High School." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Empirical Risk Registry</span>
+    <span>Sourced dynamically from data/risk-data.json. Click 'View on Map' to jump directly to any georeferenced pin.</span>
+    <a href="map.html">Open GIS Map &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link active">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link active">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>Risk Areas Registry</span>
+        </div>
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <h1 class="page-title">Hazard Locations &amp; Risk Matrix</h1>
+            <p class="page-subtitle">
+              Comprehensive inventory of audited locations scored using standard Risk Matrix protocols (Likelihood × Severity) during on-site field visits.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button id="toggle-view-cards" class="btn btn-sm btn-primary">Card View 🗂️</button>
+            <button id="toggle-view-table" class="btn btn-sm btn-secondary">Table View 📊</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Risk Directory Section -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter & Search Controls -->
+        <div class="filter-bar">
+          <div class="filter-pills">
+            <button class="filter-pill risk-filter-pill active" data-filter="all">All Locations (<span id="count-all">6</span>)</button>
+            <button class="filter-pill risk-filter-pill" data-filter="high">🔴 High Risk (<span id="count-high">2</span>)</button>
+            <button class="filter-pill risk-filter-pill" data-filter="medium">🟠 Medium Risk (<span id="count-med">3</span>)</button>
+            <button class="filter-pill risk-filter-pill" data-filter="low">🟢 Low Risk (<span id="count-low">1</span>)</button>
+          </div>
+
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="risk-search-input" class="search-input" placeholder="Search by name, problem, or ID..." />
+          </div>
+        </div>
+
+        <!-- Dynamic Cards Grid Container -->
+        <div class="cards-grid" id="risk-cards-container">
+          <!-- Populated via JavaScript -->
+        </div>
+
+        <!-- Responsive Table Container (Hidden by default, toggled via button) -->
+        <div class="table-container" id="risk-table-container" style="display: none; margin-top: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Location Name</th>
+                <th>Risk Level</th>
+                <th>Hazard Category</th>
+                <th>Risk Score</th>
+                <th>Field Observation</th>
+                <th>Recommended Remedy</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="risk-table-body">
+              <!-- Populated via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="risk-empty-state" style="display: none; padding: 3.5rem 1rem; text-align: center; color: var(--text-muted);">
+          <h3>No matching hazard locations found</h3>
+          <p>Try clearing your search query or switching risk filters.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    let allRiskLocations = [];
+    let currentFilter = "all";
+    let currentSearch = "";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const data = await loadRiskData();
+      if (!data || !data.riskLocations) return;
+
+      allRiskLocations = data.riskLocations;
+
+      // Update counters
+      document.getElementById("count-all").textContent = allRiskLocations.length;
+      document.getElementById("count-high").textContent = allRiskLocations.filter(l => l.riskLevel.toLowerCase() === "high").length;
+      document.getElementById("count-med").textContent = allRiskLocations.filter(l => l.riskLevel.toLowerCase() === "medium" || l.riskLevel.toLowerCase() === "med").length;
+      document.getElementById("count-low").textContent = allRiskLocations.filter(l => l.riskLevel.toLowerCase() === "low").length;
+
+      // Render items
+      renderRiskViews();
+
+      // Setup filter pills
+      const filterPills = document.querySelectorAll(".risk-filter-pill");
+      filterPills.forEach(pill => {
+        pill.addEventListener("click", () => {
+          filterPills.forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          currentFilter = pill.getAttribute("data-filter");
+          renderRiskViews();
+        });
+      });
+
+      // Setup search input
+      const searchInput = document.getElementById("risk-search-input");
+      searchInput.addEventListener("input", (e) => {
+        currentSearch = e.target.value.toLowerCase().trim();
+        renderRiskViews();
+      });
+
+      // Setup View Toggles (Cards vs Table)
+      const btnCards = document.getElementById("toggle-view-cards");
+      const btnTable = document.getElementById("toggle-view-table");
+      const cardsContainer = document.getElementById("risk-cards-container");
+      const tableContainer = document.getElementById("risk-table-container");
+
+      btnCards.addEventListener("click", () => {
+        cardsContainer.style.display = "grid";
+        tableContainer.style.display = "none";
+        btnCards.className = "btn btn-sm btn-primary";
+        btnTable.className = "btn btn-sm btn-secondary";
+      });
+
+      btnTable.addEventListener("click", () => {
+        cardsContainer.style.display = "none";
+        tableContainer.style.display = "block";
+        btnTable.className = "btn btn-sm btn-primary";
+        btnCards.className = "btn btn-sm btn-secondary";
+      });
+    });
+
+    function getFilteredLocations() {
+      return allRiskLocations.filter(loc => {
+        const matchesFilter = currentFilter === "all" ||
+          (currentFilter === "high" && loc.riskLevel.toLowerCase() === "high") ||
+          (currentFilter === "medium" && (loc.riskLevel.toLowerCase() === "medium" || loc.riskLevel.toLowerCase() === "med")) ||
+          (currentFilter === "low" && loc.riskLevel.toLowerCase() === "low");
+
+        const matchesSearch = !currentSearch ||
+          loc.name.toLowerCase().includes(currentSearch) ||
+          loc.problem.toLowerCase().includes(currentSearch) ||
+          loc.observation.toLowerCase().includes(currentSearch) ||
+          loc.id.toLowerCase().includes(currentSearch);
+
+        return matchesFilter && matchesSearch;
+      });
+    }
+
+    function renderRiskViews() {
+      const filtered = getFilteredLocations();
+      const cardsContainer = document.getElementById("risk-cards-container");
+      const tableBody = document.getElementById("risk-table-body");
+      const emptyState = document.getElementById("risk-empty-state");
+
+      if (filtered.length === 0) {
+        cardsContainer.innerHTML = "";
+        tableBody.innerHTML = "";
+        emptyState.style.display = "block";
+        return;
+      }
+      emptyState.style.display = "none";
+
+      // 1. Render Cards
+      cardsContainer.innerHTML = "";
+      filtered.forEach(loc => {
+        const badge = getRiskBadgeHtml(loc.riskLevel);
+        const card = document.createElement("div");
+        card.id = loc.id;
+        card.className = "risk-card";
+        card.innerHTML = `
+          <div class="risk-card-media">
+            <img src="${loc.photo || 'assets/images/risk-r01.svg'}" alt="${escapeHtml(loc.name)}" onerror="this.src='assets/images/hero-illustration.svg'" />
+            <div class="risk-card-badge">${badge}</div>
+            <div class="risk-card-score">Score: ${loc.riskScore || 12}/25</div>
+          </div>
+          <div class="risk-card-body">
+            <div class="risk-card-id">${escapeHtml(loc.id)} • ${escapeHtml(loc.category || 'Road Safety')}</div>
+            <h3 class="risk-card-title">${escapeHtml(loc.name)}</h3>
+            <p class="risk-card-problem"><strong>Identified Hazard:</strong> ${escapeHtml(loc.problem)}</p>
+            <div class="risk-card-detail-item" style="border-left-color: var(--primary);">
+              <strong>Field Observation (${escapeHtml(loc.date || 'Aug 2024')} @ ${escapeHtml(loc.time || '12:00')}):</strong>
+              <span>${escapeHtml(loc.observation)}</span>
+            </div>
+            <div class="risk-card-detail-item" style="border-left-color: var(--secondary);">
+              <strong>Mitigation Recommendation:</strong>
+              <span>${escapeHtml(loc.recommendation)}</span>
+            </div>
+          </div>
+          <div class="risk-card-footer">
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Priority: ${escapeHtml(loc.implementationPriority || 'Phase 1')}</span>
+            <a href="map.html?risk=${loc.id}" class="btn btn-sm btn-primary">Locate on Map 📍</a>
+          </div>
+        `;
+        cardsContainer.appendChild(card);
+      });
+
+      // 2. Render Table Rows
+      tableBody.innerHTML = "";
+      filtered.forEach(loc => {
+        const badge = getRiskBadgeHtml(loc.riskLevel);
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(loc.id)}</strong></td>
+          <td style="font-weight: 700;">${escapeHtml(loc.name)}</td>
+          <td>${badge}</td>
+          <td>${escapeHtml(loc.category || '-')}</td>
+          <td><strong style="color:var(--primary);">${loc.riskScore || 12}/25</strong></td>
+          <td style="max-width: 250px; font-size: 0.82rem; color: var(--text-muted);">${escapeHtml(loc.observation)}</td>
+          <td style="max-width: 250px; font-size: 0.82rem;">${escapeHtml(loc.recommendation)}</td>
+          <td>
+            <a href="map.html?risk=${loc.id}" class="btn btn-sm btn-secondary" style="font-size: 0.75rem;">
+              Map &rarr;
+            </a>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>

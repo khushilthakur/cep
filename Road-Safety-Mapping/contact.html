@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Feedback | Road Safety Mapping Around Schools</title>
+  <meta name="description" content="Stakeholder feedback form and student researcher credentials for the University of Mumbai B.Sc. CS CEP." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Academic Project</span>
+    <span>University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP).</span>
+    <a href="about.html">About The Research &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link active">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>Contact &amp; Feedback</span>
+        </div>
+        <h1 class="page-title">Community Feedback &amp; Inquiries</h1>
+        <p class="page-subtitle">
+          Share suggestions, report new school route hazards, or connect with the student research team regarding study findings.
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-grid" style="align-items: flex-start;">
+
+          <!-- Contact Form Card -->
+          <div class="stat-card" style="padding: 2rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+              Send Feedback or Hazard Report
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Feedback is stored locally in your browser and used to refine our remedial proposals.
+            </p>
+
+            <form id="contact-form" novalidate>
+              <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  Your Name <span class="required-asterisk">*</span>
+                </label>
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Rahul Sharma" required />
+              </div>
+
+              <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  Stakeholder Category <span class="required-asterisk">*</span>
+                </label>
+                <select id="contact-category" class="form-control" required>
+                  <option value="">Select your role...</option>
+                  <option value="Student">Student</option>
+                  <option value="Parent">Parent / Guardian</option>
+                  <option value="Teacher">Teacher / School Faculty</option>
+                  <option value="Resident">Local Resident</option>
+                  <option value="Official">Traffic Official / Municipal Representative</option>
+                  <option value="Other">Other Community Member</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  Email Address (Optional)
+                </label>
+                <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" />
+              </div>
+
+              <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  Message or Road Hazard Details <span class="required-asterisk">*</span>
+                </label>
+                <textarea id="contact-message" class="form-control" placeholder="Describe the road issue or feedback on school zone safety..." rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                Submit Community Feedback ✉️
+              </button>
+            </form>
+
+            <div id="contact-feedback-receipt" style="margin-top: 1rem;"></div>
+          </div>
+
+          <!-- Academic & Researcher Information Card -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div class="stat-card" style="border-top: 4px solid var(--primary); padding: 1.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <img src="assets/images/school-crest.svg" alt="University Logo" style="width: 48px; height: 48px;" />
+                <div>
+                  <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">Academic Research Details</h4>
+                  <p style="font-size: 0.78rem; color: var(--primary); font-weight: 700;">University of Mumbai CEP</p>
+                </div>
+              </div>
+
+              <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; display: flex; flex-direction: column; gap: 0.5rem;">
+                <div><strong>Degree:</strong> Bachelor of Science in Computer Science (B.Sc. CS)</div>
+                <div><strong>Semester:</strong> Semester V (Third Year)</div>
+                <div><strong>Course:</strong> Community Engagement Project (CEP)</div>
+                <div><strong>Case Study Location:</strong> St. Jude Model High School, Vile Parle West, Mumbai</div>
+                <div><strong>Target Audience:</strong> BMC K-West Ward, Mumbai Traffic Police, School PTA</div>
+              </div>
+            </div>
+
+            <div class="stat-card" style="padding: 1.5rem; background: var(--bg-surface-elevated);">
+              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Viva Voce Project Demonstration</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+                During the university viva examination, this platform demonstrates the application of:
+              </p>
+              <ul style="font-size: 0.82rem; color: var(--text-muted); padding-left: 1.2rem; line-height: 1.7;">
+                <li>Spatial GIS data binding using Leaflet &amp; OpenStreetMap</li>
+                <li>Dynamic asynchronous JSON data fetching (zero heavy backend dependency)</li>
+                <li>Reactive Chart.js rendering adapting to user theme preferences</li>
+                <li>Client-side data persistence and export via localStorage &amp; JSON serialization</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact-form");
+      const receipt = document.getElementById("contact-feedback-receipt");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("contact-name").value.trim();
+        const category = document.getElementById("contact-category").value;
+        const email = document.getElementById("contact-email").value.trim();
+        const message = document.getElementById("contact-message").value.trim();
+
+        if (!name || !category || !message) {
+          showToast("Please fill out all required fields.", "danger");
+          return;
+        }
+
+        const msgObj = {
+          id: `MSG-${Date.now().toString(36).toUpperCase()}`,
+          timestamp: new Date().toISOString(),
+          name,
+          category,
+          email,
+          message
+        };
+
+        const existing = JSON.parse(localStorage.getItem("cep_contact_messages") || "[]");
+        existing.unshift(msgObj);
+        localStorage.setItem("cep_contact_messages", JSON.stringify(existing));
+
+        form.reset();
+        showToast("Feedback sent successfully!", "success");
+
+        receipt.innerHTML = `
+          <div class="stat-card" style="border-color: var(--risk-low); padding: 1rem; margin-top: 1rem; background: var(--bg-subtle);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="badge badge-low">✓ Message Saved</span>
+              <span style="font-size:0.75rem; color:var(--text-subtle);">${msgObj.id}</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">
+              Thank you, <strong>${escapeHtml(name)}</strong>. Your feedback has been recorded in the study repository.
+            </p>
+          </div>
+        `;
+      });
+    });
+  </script>
+</body>
+</html>

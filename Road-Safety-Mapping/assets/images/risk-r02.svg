@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <rect width="600" height="400" fill="#1e293b"/>
+  <!-- T-Junction Road -->
+  <path d="M 0 150 L 600 150 L 600 270 L 370 270 L 370 400 L 230 400 L 230 270 L 0 270 Z" fill="#334155"/>
+  <!-- Lane markings -->
+  <line x1="0" y1="210" x2="600" y2="210" stroke="#f1f5f9" stroke-width="3" stroke-dasharray="15, 15"/>
+  <line x1="300" y1="270" x2="300" y2="400" stroke="#f1f5f9" stroke-width="3" stroke-dasharray="15, 15"/>
+
+  <!-- Blind Corner Building -->
+  <rect x="0" y="270" width="230" height="130" fill="#475569"/>
+  <text x="115" y="340" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">CORNER STRUCTURE</text>
+  <text x="115" y="360" fill="#f87171" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">(BLOCKS SIGHTLINE)</text>
+
+  <!-- Speeding Auto Rickshaw making sharp blind turn -->
+  <g transform="translate(250, 200) rotate(-35)">
+    <path d="M 0 35 L 15 5 L 65 5 L 80 35 L 75 45 L 5 45 Z" fill="#eab308"/>
+    <rect x="20" y="10" width="40" height="20" fill="#0f172a"/>
+    <circle cx="20" cy="45" r="8" fill="#0f172a"/>
+    <circle cx="65" cy="45" r="8" fill="#0f172a"/>
+  </g>
+  <!-- Speed lines -->
+  <path d="M 180 180 Q 240 190 280 250" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,6"/>
+
+  <!-- Pedestrian trying to cross -->
+  <g transform="translate(380, 280)">
+    <circle cx="0" cy="0" r="6" fill="#38bdf8"/>
+    <line x1="0" y1="6" x2="0" y2="24" stroke="#38bdf8" stroke-width="4"/>
+    <line x1="0" y1="24" x2="-6" y2="38" stroke="#38bdf8" stroke-width="3"/>
+    <line x1="0" y1="24" x2="6" y2="38" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Question mark -->
+    <text x="10" y="5" fill="#f59e0b" font-family="sans-serif" font-size="16" font-weight="bold">?</text>
+  </g>
+
+  <!-- Missing Zebra Indicator -->
+  <rect x="360" y="210" width="80" height="60" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+  <text x="400" y="245" fill="#fca5a5" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">NO ZEBRA</text>
+
+  <!-- Risk Tag -->
+  <rect x="20" y="20" width="180" height="34" rx="6" fill="#dc2626"/>
+  <text x="110" y="42" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">R02: HIGH RISK (JUNCTION)</text>
+
+  <!-- Field Log -->
+  <rect x="20" y="340" width="560" height="42" rx="6" fill="#0f172a" opacity="0.9" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="35" y="358" fill="#fca5a5" font-family="sans-serif" font-size="10" font-weight="bold">FIELD OBSERVATION:</text>
+  <text x="35" y="372" fill="#f1f5f9" font-family="sans-serif" font-size="10">Vehicles recorded at 42-48 km/h approaching turn without slowing. Crossing wait > 3m.</text>
+</svg>

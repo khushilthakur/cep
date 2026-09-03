@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fieldwork Visual Gallery | Road Safety Mapping Around Schools</title>
+  <meta name="description" content="Photographic and visual evidence logged during field inspections around St. Jude Model High School, Vile Parle (W), Mumbai." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Fieldwork Documentation</span>
+    <span>Click any visual card to inspect high-resolution evidence and field observation metadata.</span>
+    <a href="about.html#demo-guide">Guide to uploading your real field photos &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link active">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>Fieldwork Visual Gallery</span>
+        </div>
+        <h1 class="page-title">Field Inspection Photo Evidence</h1>
+        <p class="page-subtitle">
+          Primary photographic documentation capturing vehicular double-parking, blind intersections, pavement encroachments, and faded road stripes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter Pills -->
+        <div class="filter-bar">
+          <div class="filter-pills">
+            <button class="filter-pill gallery-filter-btn active" data-category="all">All Evidence (6)</button>
+            <button class="filter-pill gallery-filter-btn" data-category="gates">🏫 School Gates</button>
+            <button class="filter-pill gallery-filter-btn" data-category="junctions">🚦 Road Junctions</button>
+            <button class="filter-pill gallery-filter-btn" data-category="footpaths">🚶 Footpaths &amp; Bus Stops</button>
+            <button class="filter-pill gallery-filter-btn" data-category="crossings">🦓 Zebra Crossings</button>
+            <button class="filter-pill gallery-filter-btn" data-category="signage">🪧 Signs &amp; Lighting</button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-container">
+
+          <!-- Item 1: Gate -->
+          <div class="gallery-card" data-category="gates">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r01.svg', 'School Main Gate Congestion', 'Main Gate Entrance Plaza', 'Chaotic pick-up double parking and swarming pedestrians during 01:30 PM dispersal.', '19.1028° N, 72.8430° E')">
+              <img src="assets/images/risk-r01.svg" alt="School Main Gate Congestion" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-high" style="width: fit-content;">Gate Bottleneck</span>
+              <h3 class="gallery-title">School Main Gate Congestion</h3>
+              <p class="gallery-caption">Private cars &amp; autos double-parked directly across entrance.</p>
+              <div class="gallery-meta">
+                <span>📍 Main Gate Plaza</span>
+                <span>📅 18 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Junction -->
+          <div class="gallery-card" data-category="junctions">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r02.svg', 'SV Road T-Junction Blind Turn', 'SV Road &amp; School Lane', 'Vehicles turning at 42-48 km/h without slowing down. Zero zebra crossing or pedestrian signal.', '19.1039° N, 72.8441° E')">
+              <img src="assets/images/risk-r02.svg" alt="SV Road T-Junction" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-high" style="width: fit-content;">Blind Junction</span>
+              <h3 class="gallery-title">SV Road T-Junction Turn</h3>
+              <p class="gallery-caption">High-speed turning auto-rickshaws into student approach lane.</p>
+              <div class="gallery-meta">
+                <span>📍 SV Road Junction</span>
+                <span>📅 20 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Footpath -->
+          <div class="gallery-card" data-category="footpaths">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r03.svg', 'North Perimeter Footpath Encroachment', 'North Perimeter &amp; Bus Stop', 'Footpath width squeezed from 2.0m to 0.6m. 78% of students forced onto active carriageway.', '19.1035° N, 72.8418° E')">
+              <img src="assets/images/risk-r03.svg" alt="Encroached Sidewalk" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-med" style="width: fit-content;">Encroachment</span>
+              <h3 class="gallery-title">Encroached Sidewalk &amp; Bus Stop</h3>
+              <p class="gallery-caption">Broken pavers and vendor stalls forcing students into road.</p>
+              <div class="gallery-meta">
+                <span>📍 North Bus Shelter</span>
+                <span>📅 22 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Signage & Lighting -->
+          <div class="gallery-card" data-category="signage">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r04.svg', 'Residential Blind Corner & Foliage', 'West Residential Lane', 'Overgrown tree canopy blocks streetlights and obscures visibility of approaching students.', '19.1018° N, 72.8419° E')">
+              <img src="assets/images/risk-r04.svg" alt="Obscured Visibility" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-med" style="width: fit-content;">Signage Deficit</span>
+              <h3 class="gallery-title">Foliage Obscuring Streetlights</h3>
+              <p class="gallery-caption">Zero school zone regulatory signage and dim lighting.</p>
+              <div class="gallery-meta">
+                <span>📍 West Cross Lane</span>
+                <span>📅 24 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Crossings -->
+          <div class="gallery-card" data-category="crossings">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r05.svg', 'Faded Weathered Zebra Markings', 'South Approach Crossing', 'Over 60% paint loss from monsoons. Drivers fail to yield due to eroded marking contrast.', '19.1017° N, 72.8438° E')">
+              <img src="assets/images/risk-r05.svg" alt="Faded Zebra Crossing" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-low" style="width: fit-content;">Marking Wear</span>
+              <h3 class="gallery-title">Faded Zebra Crossing Stripes</h3>
+              <p class="gallery-caption">Weathered thermoplastic markings requiring repainting.</p>
+              <div class="gallery-meta">
+                <span>📍 South Cycle Approach</span>
+                <span>📅 26 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Gates / Service -->
+          <div class="gallery-card" data-category="gates">
+            <div class="gallery-media" onclick="openLightbox('assets/images/risk-r06.svg', 'Reversing Commercial Delivery Truck', 'Rear Kindergarten Gate', 'Delivery vehicle reversing into alley with zero spotters concurrently with KG student dismissal.', '19.1023° N, 72.8443° E')">
+              <img src="assets/images/risk-r06.svg" alt="Service Vehicle Conflict" />
+            </div>
+            <div class="gallery-info">
+              <span class="badge badge-med" style="width: fit-content;">Service Conflict</span>
+              <h3 class="gallery-title">Rear Gate Reversing Hazard</h3>
+              <p class="gallery-caption">Commercial trucks reversing across kindergarten exit path.</p>
+              <div class="gallery-meta">
+                <span>📍 Kindergarten Gate</span>
+                <span>📅 28 Aug 2024</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox Dialog -->
+    <div id="lightbox-modal" class="modal-overlay" onclick="closeLightbox(event)">
+      <div class="modal-dialog" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3 id="lightbox-title" class="modal-title">Evidence Details</h3>
+          <button class="modal-close-btn" onclick="closeLightbox(null)">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-container">
+            <img id="lightbox-img" src="" alt="Full Evidence" />
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; color: var(--text-subtle);">
+            <span id="lightbox-location">📍 Location</span>
+            <span id="lightbox-gps">🌐 GPS Coordinates</span>
+          </div>
+          <p id="lightbox-desc" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Gallery Category Filtering
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+      const cards = document.querySelectorAll(".gallery-card");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const category = btn.getAttribute("data-category");
+          cards.forEach(card => {
+            if (category === "all" || card.getAttribute("data-category") === category) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+
+    // Lightbox modal logic
+    function openLightbox(src, title, loc, desc, gps) {
+      const modal = document.getElementById("lightbox-modal");
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox-title").textContent = title;
+      document.getElementById("lightbox-location").textContent = `📍 ${loc}`;
+      document.getElementById("lightbox-gps").textContent = `🌐 ${gps}`;
+      document.getElementById("lightbox-desc").textContent = desc;
+
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(e) {
+      const modal = document.getElementById("lightbox-modal");
+      modal.classList.remove("open");
+      document.body.style.overflow = "auto";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox(null);
+    });
+  </script>
+</body>
+</html>

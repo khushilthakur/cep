@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Safety Map | Road Safety Mapping Around Schools</title>
+  <meta name="description" content="Interactive digital road safety map powered by Leaflet.js and OpenStreetMap showcasing georeferenced hazard locations, risk levels, and field observations." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/school-crest.svg" />
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Demo Notice Top Banner -->
+  <div class="demo-banner">
+    <span class="demo-banner-badge">Interactive GIS Map</span>
+    <span>Click any marker to inspect physical observations, risk rating, and mitigation recommendations.</span>
+    <a href="risk-areas.html">View Detailed Risk Directory &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-container">
+        <img src="assets/images/school-crest.svg" alt="Project Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SafeSchool Routes</span>
+          <span class="brand-subtitle">Mumbai Univ CEP • Sem V CS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="survey.html" class="nav-link">Survey</a></li>
+          <li><a href="map.html" class="nav-link active">Safety Map</a></li>
+          <li><a href="risk-areas.html" class="nav-link">Risk Areas</a></li>
+          <li><a href="results.html" class="nav-link">Results</a></li>
+          <li><a href="recommendations.html" class="nav-link">Recommendations</a></li>
+          <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">🌙</button>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Project</a>
+      <a href="survey.html" class="mobile-nav-link">Participate in Survey</a>
+      <a href="map.html" class="mobile-nav-link active">Interactive Safety Map</a>
+      <a href="risk-areas.html" class="mobile-nav-link">Identified Risk Areas</a>
+      <a href="results.html" class="mobile-nav-link">Survey Results &amp; Analytics</a>
+      <a href="recommendations.html" class="mobile-nav-link">Safety Recommendations</a>
+      <a href="methodology.html" class="mobile-nav-link">Research Methodology</a>
+      <a href="gallery.html" class="mobile-nav-link">Fieldwork Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact &amp; Feedback</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header" style="padding: 1.75rem 0 1.25rem;">
+      <div class="container page-header-content">
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a> &rsaquo; <span>Digital Safety Map</span>
+        </div>
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <h1 class="page-title" style="font-size: 1.95rem;">School Zone Digital Risk Map</h1>
+            <p class="page-subtitle" style="font-size: 0.95rem;">
+              Spatial hazard distribution around St. Jude Model High School, Vile Parle (W), Mumbai. Powered by Leaflet &amp; OpenStreetMap.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button id="focus-school-btn" class="btn btn-sm btn-primary">
+              🏫 Center on School
+            </button>
+            <button id="fit-all-btn" class="btn btn-sm btn-secondary">
+              🔍 Fit All Risk Spots
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Container Section -->
+    <section style="padding: 1.25rem 0 2.5rem;">
+      <div class="container">
+
+        <!-- Map Filter & Search Bar -->
+        <div class="filter-bar" style="margin-bottom: 1rem;">
+          <div class="filter-pills">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-subtle); margin-right: 0.25rem; text-transform: uppercase;">
+              Filter Hazards:
+            </span>
+            <button class="filter-pill map-filter-btn active" data-filter="all">All Locations (6)</button>
+            <button class="filter-pill map-filter-btn" data-filter="high">🔴 High Risk (2)</button>
+            <button class="filter-pill map-filter-btn" data-filter="medium">🟠 Medium Risk (3)</button>
+            <button class="filter-pill map-filter-btn" data-filter="low">🟢 Low Risk (1)</button>
+          </div>
+
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="map-search-input" class="search-input" placeholder="Search risk name or hazard..." />
+          </div>
+        </div>
+
+        <!-- Interactive Map Wrapper -->
+        <div class="map-wrapper">
+          <div id="safety-map"></div>
+
+          <!-- Responsive Floating Map Legend -->
+          <div class="map-floating-legend">
+            <div class="legend-title">Map Legend</div>
+            <div class="legend-item">
+              <span class="legend-icon high"></span>
+              <span><strong>High Risk:</strong> Severe conflict</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon med"></span>
+              <span><strong>Medium Risk:</strong> Moderate hazard</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon low"></span>
+              <span><strong>Low Risk:</strong> Minor / Upkeep</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon school"></span>
+              <span><strong>School:</strong> 500m study hub</span>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-subtle); margin-top: 0.4rem; border-top: 1px solid var(--border-color); padding-top: 0.35rem;">
+              Dashed circle: 500m Buffer
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Summary Cards Under Map -->
+        <div class="stats-grid" style="margin-top: 1.5rem;">
+          <div class="stat-card" style="padding: 1rem;">
+            <div class="stat-header">
+              <span>Study Boundary</span>
+              <span>📍</span>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+              500 Meter Radius
+            </div>
+            <div class="stat-desc">Vile Parle (W), Mumbai K-West Ward</div>
+          </div>
+
+          <div class="stat-card" style="padding: 1rem;">
+            <div class="stat-header">
+              <span>School Enrollment</span>
+              <span>🎒</span>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+              1,450 Students
+            </div>
+            <div class="stat-desc">Primary through Secondary grades</div>
+          </div>
+
+          <div class="stat-card stat-high" style="padding: 1rem;">
+            <div class="stat-header">
+              <span>Critical Zone 01</span>
+              <span>🔴</span>
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+              School Main Gate
+            </div>
+            <div class="stat-desc">Drop-off congestion &amp; pedestrian swarming</div>
+          </div>
+
+          <div class="stat-card stat-high" style="padding: 1rem;">
+            <div class="stat-header">
+              <span>Critical Zone 02</span>
+              <span>🔴</span>
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+              SV Road T-Junction
+            </div>
+            <div class="stat-desc">Blind turns &amp; high-speed vehicle entry</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <img src="assets/images/school-crest.svg" alt="Project Crest" style="width: 32px; height: 32px;" />
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SafeSchool Routes</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          A University of Mumbai B.Sc. Computer Science Semester V Community Engagement Project (CEP) studying urban road safety around educational institutions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Project</a></li>
+          <li><a href="survey.html">Community Survey</a></li>
+          <li><a href="map.html">Safety Map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Research</h4>
+        <ul class="footer-links">
+          <li><a href="results.html">Survey Results</a></li>
+          <li><a href="recommendations.html">Recommendations</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="gallery.html">Fieldwork Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academic Details</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          B.Sc. Computer Science Semester V<br />
+          Community Engagement Project<br />
+          University of Mumbai
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2024 Road Safety Mapping Around Schools CEP. All rights reserved.</div>
+      <div>Designed for University Examination &amp; Viva Voce Evaluation.</div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Custom Scripts -->
+  <script src="js/script.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
