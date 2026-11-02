@@ -1,0 +1,30 @@
+graph = {
+    'S': [('A',1), ('B',3), ('D',2)],
+    'A': [('C',4)],
+    'B': [('D',5)],
+    'C': [('G',3)],
+    'D': [('G',1)],
+    'G': []
+}
+
+h = {'S':8, 'A':7, 'B':6, 'C':2, 'D':1, 'G':0}
+
+def rbfs(node, goal, cost, path):
+    if node == goal:
+        print("Path:", " -> ".join(path))
+        print("Cost:", cost)
+        return True
+
+    if not graph[node]:
+        return False
+
+    graph[node].sort(key=lambda x: cost + x[1] + h[x[0]])
+
+    for nxt, c in graph[node]:
+        if rbfs(nxt, goal, cost + c, path + [nxt]):
+            return True
+
+    return False
+
+rbfs('S', 'G', 0, ['S'])
+

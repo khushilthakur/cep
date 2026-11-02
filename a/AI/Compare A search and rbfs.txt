@@ -1,0 +1,59 @@
+import heapq
+import time
+
+graph = {
+    'S': [('A', 1), ('B', 3), ('D', 2)],
+    'A': [('C', 4)],
+    'B': [('D', 5)],
+    'C': [('G', 3)],
+    'D': [('G', 1)],
+    'G': []
+}
+h = {'S': 8, 'A': 7, 'B': 6, 'C': 2, 'D': 1, 'G': 0}
+
+def astar(start, goal):
+    expanded = 0
+    pq = [(h[start], 0, start, [start])]
+    while pq:
+        f, g, node, path = heapq.heappop(pq)
+        expanded += 1
+        if node == goal:
+            return path, g, expanded
+        for nxt, cost in graph[node]:
+            heapq.heappush(pq, (g + cost + h[nxt], g + cost, nxt, path + [nxt]))
+    return None, 0, expanded
+
+def rbfs(node, goal, cost, path, counter):
+    counter[0] += 1
+    if node == goal:
+        return path, cost
+    if not graph[node]:
+        return None
+    children = sorted(graph[node], key=lambda x: cost + x[1] + h[x[0]])
+    for nxt, c in children:
+        result = rbfs(nxt, goal, cost + c, path + [nxt], counter)
+        if result:
+            return result
+    return None
+
+runs = 20000
+
+t = time.perf_counter()
+for _ in range(runs):
+    a_path, a_cost, a_exp = astar('S', 'G')
+a_time = time.perf_counter() - t
+
+t = time.perf_counter()
+for _ in range(runs):
+    counter = [0]
+    r_path, r_cost = rbfs('S', 'G', 0, ['S'], counter)
+r_time = time.perf_counter() - t
+
+print("{:<8}{:<14}{:<7}{:<16}{}".format("Algo", "Path", "Cost", "Nodes expanded", "Time"))
+print("{:<8}{:<14}{:<7}{:<16}{:.4f}s".format("A*", "->".join(a_path), a_cost, a_exp, a_time))
+print("{:<8}{:<14}{:<7}{:<16}{:.4f}s".format("RBFS", "->".join(r_path), r_cost, counter[0], r_time))
+
+print()
+print("A* : stores all generated nodes in a priority queue, high memory O(b^d).")
+print("RBFS: keeps only the current path, low memory O(bd), may revisit nodes.")
+print("Both give the optimal path when the heuristic is admissible.")

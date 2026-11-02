@@ -1,0 +1,39 @@
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+
+X, y = load_iris(return_X_y=True)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42)
+
+weak_model = DecisionTreeClassifier(max_depth=1)
+model = AdaBoostClassifier(estimator=weak_model,
+                           n_estimators=50,
+                           random_state=42)
+
+model.fit(X_train, y_train)
+
+print("Weak classifier       : Decision Tree (max_depth=1)")
+print("Number of weak models :", len(model.estimators_))
+
+y_pred = model.predict(X_test)
+ada_acc = accuracy_score(y_test, y_pred)
+
+print("\nAdaBoost Accuracy:", ada_acc)
+print("Predicted values:", y_pred)
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+
+weak_model.fit(X_train, y_train)
+weak_acc = accuracy_score(y_test, weak_model.predict(X_test))
+
+print("Single Weak Classifier (stump) Accuracy:", weak_acc)
+print("AdaBoost Ensemble (50 stumps) Accuracy :", ada_acc)
+
+if ada_acc > weak_acc:
+    print("AdaBoost performs better than a single weak classifier.")
+else:
+    print("AdaBoost performs equal to or lower than the weak classifier.")

@@ -1,0 +1,57 @@
+import time
+from collections import deque
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
+}
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    order = []
+    while queue:
+        node = queue.popleft()
+        order.append(node)
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+    return order
+
+def dfs_iterative(graph, start):
+    visited = set()
+    stack = [start]
+    order = []
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            order.append(node)
+            visited.add(node)
+            for neighbor in reversed(graph[node]):
+                if neighbor not in visited:
+                    stack.append(neighbor)
+    return order
+
+runs = 100000
+
+for name, func in (("BFS", bfs), ("Iterative DFS", dfs_iterative)):
+    start_time = time.perf_counter()
+    for _ in range(runs):
+        order = func(graph, 'A')
+    elapsed = time.perf_counter() - start_time
+    print(name)
+    print("  Traversal order :", " ".join(order))
+    print("  Nodes visited   :", len(order))
+    print("  Time for", runs, "runs: {:.4f} sec".format(elapsed))
+
+print()
+print("Time complexity  : BFS O(V + E), DFS O(V + E)")
+print("Space complexity : BFS O(V), DFS O(V)")
+print("BFS uses a queue and finds the shortest path in an unweighted graph.")
+print("DFS uses a stack and needs less memory but gives no shortest path guarantee.")

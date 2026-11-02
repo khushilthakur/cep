@@ -1,0 +1,30 @@
+import heapq
+
+graph = {
+    'S': [('A',1), ('B',3), ('D',2)],
+    'A': [('C',4)],
+    'B': [('D',5)],
+    'C': [('G',3)],
+    'D': [('G',1)],
+    'G': []
+}
+
+h = {'S':8, 'A':7, 'B':6, 'C':2, 'D':1, 'G':0}
+
+start_node= 'B'
+
+pq = [(h[start_node], 0, start_node, [start_node])]
+
+while pq:
+    f, g, node, path = heapq.heappop(pq) 
+
+    if node == 'G':
+        print("Path:", " -> ".join(path))
+        print("Cost:", g)
+        
+        break
+
+
+    for nxt, cost in graph[node]:
+        heapq.heappush(pq, (g + cost + h[nxt], g + cost, nxt, path + [nxt]))
+

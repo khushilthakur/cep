@@ -1,0 +1,32 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("play_tennis.csv")
+data.columns = data.columns.str.replace(" ", "")
+data = pd.get_dummies(data)
+
+X = data.drop("PlayTennis_Yes", axis=1)
+y = data["PlayTennis_Yes"]
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree, export_text
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42)
+
+model = DecisionTreeClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+plt.figure(figsize=(12, 8))
+plot_tree(
+    model,
+    feature_names=X.columns,
+    class_names=["No", "Yes"],
+    filled=True,
+    rounded=True,
+    fontsize=9
+)
+plt.title("Decision Tree for Play Tennis Dataset")
+plt.show()
+
+print(export_text(model, feature_names=list(X.columns)))

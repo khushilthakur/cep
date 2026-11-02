@@ -1,0 +1,71 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import (confusion_matrix, classification_report,
+                             roc_curve, roc_auc_score)
+
+plt.style.use('ggplot')
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 200)
+
+df = pd.read_csv('C:/Users/HP/Downloads/AI_Practical_Codes/datasets/SVM_Binary_Classification_Dataset.csv')
+print(df.head())
+print("Shape:", df.shape)
+print(df.dtypes)
+
+X = df.drop('Result', axis=1).values
+y = df['Result'].values
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.4, random_state=42, stratify=y)
+
+neighbors = np.arange(1, 9)
+train_accuracy = np.empty(len(neighbors))
+test_accuracy = np.empty(len(neighbors))
+
+for i, k in enumerate(neighbors):
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train, y_train)
+    train_accuracy[i] = knn.score(X_train, y_train)
+    test_accuracy[i] = knn.score(X_test, y_test)
+
+plt.figure(figsize=(7, 5))
+plt.title('k-NN: Varying Number of Neighbors')
+plt.plot(neighbors, test_accuracy, label='Testing Accuracy')
+plt.plot(neighbors, train_accuracy, label='Training accuracy')
+plt.legend()
+plt.xlabel('Number of Neighbors')
+plt.ylabel('Accuracy')
+plt.show()
+
+knn = KNeighborsClassifier(n_neighbors=7)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+
+print("First 15 Actual   :", y_test[:15])
+print("First 15 Predicted:", y_pred[:15])
+print("Test Accuracy (k=7):", knn.score(X_test, y_test))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+
+y_pred_proba = knn.predict_proba(X_test)[:, 1]
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba)
+
+plt.figure(figsize=(7, 5))
+plt.plot([0, 1], [0, 1], 'k--')
+plt.plot(fpr, tpr, label='Knn')
+plt.xlabel('fpr')
+plt.ylabel('tpr')
+plt.title('Knn(n_neighbors=7) ROC curve')
+plt.show()
+
+print("ROC AUC score:", roc_auc_score(y_test, y_pred_proba))
+
+param_grid = {'n_neighbors': np.arange(1, 50)}
+knn_cv = GridSearchCV(KNeighborsClassifier(), param_grid, cv=5)
+knn_cv.fit(X, y)
+
+print("Best score:", knn_cv.best_score_)
+print("Best params:", knn_cv.best_params_)
