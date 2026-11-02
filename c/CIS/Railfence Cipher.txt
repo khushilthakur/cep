@@ -1,0 +1,21 @@
+def rail_fence_encrypt(text): 
+    return text[::2] + text[1::2] 
+ 
+ 
+def rail_fence_decrypt(cipher): 
+    half = (len(cipher) + 1) // 2 
+    first, second = cipher[:half], cipher[half:] 
+    return ''.join( 
+        first[i // 2] if i % 2 == 0 else second[i // 2] 
+        for i in range(len(cipher)) 
+    ) 
+ 
+ 
+if __name__ == "__main__": 
+    text = input("Enter the text: ") 
+ 
+    encrypted = rail_fence_encrypt(text) 
+    print("Encrypted:", encrypted) 
+ 
+    decrypted = rail_fence_decrypt(encrypted) 
+    print("Decrypted:", decrypted)

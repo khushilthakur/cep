@@ -1,0 +1,5 @@
+import hashlib 
+text = input("Enter the value to encode: ") 
+result = hashlib.sha1(text.encode()) 
+print("The Hexadecimal Equivalent of SHA1 is:") 
+print(result.hexdigest())

@@ -1,0 +1,7 @@
+import hashlib 
+result = hashlib.md5 (b'Alice') 
+result1 = hashlib.md5 (b'Bob') 
+print ("The byte equivalent of hash(Alice):", end ="") 
+print(result.digest ()) 
+print ("The byte equivalent of hash(Bob) :", end ="") 
+print (result1.digest () ) 
